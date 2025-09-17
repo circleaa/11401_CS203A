@@ -1,20 +1,27 @@
-# 11401_CS203A 資料結構
+# 11401_CS203A Data Structures
 
-## 課程資訊
-- 課程名稱：CS203A 資料結構  
-- 授課教師：黃鈺峰 教授  
+## Course Information
+-Course Title: Data Structures
+-Course Code: CS203A
+-Semester: 11401
+-Credits: 3
+-Instructor: Yu-Feng Huang
+-Course Time(Classroom):
+--Monday 09:10–10:00 (R60104)
+--Tuesday 15:10–17:00 (R1102)
+-Office Hours:
+--Monday 14:00-16:00 (R1310)
+--Wednesday 14:00–16:00 (R1310)
 
-## 學生資訊
-- 姓名：王郁佳  
-- 學號：1121430 
-- 系所班級：資工3A
+## Student Information
+- Name: Wang Yu-Chia  
+- Student ID: 1121430  
+- Department and Class: Computer Science, Junior (3A)
 
-## Repository 說明
-元智大學資料結構學習紀錄
-內容包括：
-- 課堂作業、考試  
-- 筆記與程式練習  
-- 專案程式碼與報告  
+## Course Description
+Yuan Ze University - Data Structures Learning Repository  
+This repository includes:
+- Assignments and exams  
+- Notes and programming exercises  
+- Project codes and reports  
 
----
-📌 隨課程進度持續更新。
