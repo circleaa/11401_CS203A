@@ -21,7 +21,7 @@
 ## Course Description
 Yuan Ze University - Data Structures Learning Repository  
 This repository includes:
-- Assignments and exams  
-- Notes and programming exercises  
-- Project codes and reports  
+- Assignments and exams
+- Notes and programming exercises
+- Project codes and reports
 
