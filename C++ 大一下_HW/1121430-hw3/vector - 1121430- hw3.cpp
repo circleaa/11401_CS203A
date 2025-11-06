@@ -1,0 +1,266 @@
+#include "vector.h" // include definition of class vector 
+
+// empty container constructor (default constructor)
+// Constructs an empty container, with no elements.
+vector::vector()
+   : myFirst(),
+     myLast(),
+     myEnd()
+{
+}
+
+// fill constructor
+// Constructs a container with "count" elements.
+// Each element is initialized as 0.
+vector::vector( const size_type count )
+   : myFirst( count == 0 ? nullptr : new value_type[ count ]() ),
+     myLast( count == 0 ? nullptr : myFirst + count ),
+     myEnd( count == 0 ? nullptr : myLast )
+{
+    //---
+    for (size_type i = 0; i < count; ++i)
+    {
+        myFirst[i].coef = 0;
+        myFirst[i].expon = 0;
+    }
+}
+
+// copy constructor
+// Constructs a container with a copy of each of the elements in "right",
+// in the same order.
+vector::vector( const vector &right )
+   : myFirst(),
+     myLast(),
+     myEnd()
+{
+    //---
+    size_type count = right.size();
+    if (count == 0)
+        myFirst = myLast = myEnd = nullptr;
+    else
+    {
+        myFirst = new value_type[count]();
+        for (size_type i = 0; i < count; i++)
+        {
+            myFirst[i].coef = right.at(i).coef;
+            myFirst[i].expon = right.at(i).expon;
+        }
+        myLast = myEnd = myFirst + count;
+    }
+}
+
+// Vector destructor
+// Destroys the container object.
+// Deallocates all the storage capacity allocated by the vector.
+vector::~vector()
+{
+   if( myFirst != nullptr )
+      delete[] myFirst;
+}
+
+// Adds a new element at the end of the vector, after its current last element.
+// The content of val is copied (or moved) to the new element.
+// This effectively increases the container size by one,
+// which causes an automatic reallocation of the allocated storage space
+// if and only if the new vector size surpasses the current vector capacity.
+void vector::push_back( const value_type &val )
+{
+   size_type originalSize = size();
+   size_type originalCapacity = capacity();
+   if( originalSize == originalCapacity )
+   {
+      size_type newCapacity;
+      if( originalCapacity <= 1 )
+         newCapacity = originalCapacity + 1;
+      else
+         newCapacity = originalCapacity * 3 / 2;
+
+      //---
+      // Allocate new memory
+      value_type* newFirst = new value_type[newCapacity]();
+
+      // Copy elements from old memory to new memory
+      for (size_type i = 0; i < originalSize; ++i)
+      {
+          newFirst[i].coef = myFirst[i].coef;
+          newFirst[i].expon = myFirst[i].expon;
+      }
+
+      // Delete old memory
+      if (myFirst != nullptr)
+          delete[] myFirst;
+
+      // Update pointers
+      myFirst = newFirst;
+      myLast = myFirst + originalSize;
+      myEnd = myFirst + newCapacity;
+   }
+
+   (*myLast).coef = val.coef; //將 val 的值賦給了 myLast 所指向的位置
+   (*myLast).expon = val.expon;
+   ++myLast;
+}
+
+// overloaded assignment operator
+// Assigns new contents to the container, replacing its current contents,
+// and modifying its size accordingly.
+// Copies all the elements from "right" into the container
+// (with "right" preserving its contents).
+vector& vector::assign( const vector &right )
+{
+   if( this != &right ) // avoid self-assignment
+   {
+      size_type rightSize = right.size();
+      if( rightSize > capacity() )
+      {
+         if( size() > 0 )
+            delete[] myFirst; // release space
+
+         size_type newCapacity = capacity() * 3 / 2;
+         if( newCapacity < rightSize )
+            newCapacity = rightSize;
+
+         // Update pointers
+         myFirst = new value_type[newCapacity]();
+         myEnd = myFirst + newCapacity;
+      }
+
+      myLast = myFirst + rightSize;
+     
+      for (size_type i = 0; i < rightSize; i++)
+      {
+          myFirst[i].coef = right.myFirst[i].coef;
+          myFirst[i].expon = right.myFirst[i].expon;
+      }
+   }
+
+   return *this; // enables x = y = z, for example
+}
+
+// Resizes the container so that it contains "newSize" elements.
+// If "newSize" is smaller than the current container size,
+// the content is reduced to its first "newSize" elements, removing those beyond.
+// If "newSize" is greater than the current container size,
+// the content is expanded by inserting at the end as many elements as needed
+// to reach a size of "newSize".
+// The new elements are initialized as 0.
+// If "newSize" is also greater than the current container capacity,
+// an automatic reallocation of the allocated storage space takes place.
+void vector::resize( const size_type newSize )
+{
+   size_type originalSize = size();
+   if( newSize > originalSize )
+   {
+      if( newSize > capacity() )
+      {
+         size_type newCapacity = capacity() * 3 / 2;
+         if( newCapacity < newSize )
+            newCapacity = newSize;
+
+         //---
+         // Allocate new memory
+         value_type* newFirst = new value_type[newCapacity]();
+
+         // Copy elements from old memory to new memory
+         for (size_type i = 0; i < originalSize; ++i)
+         {
+             newFirst[i].coef = myFirst[i].coef;
+             newFirst[i].expon = myFirst[i].expon;
+         }
+
+         // Delete old memory
+         if (myFirst != nullptr)
+             delete[] myFirst;
+
+         // Update pointers
+         myFirst = newFirst;
+         myEnd = myFirst + newCapacity;
+      }
+
+      for (size_type i = originalSize; i < newSize; ++i)
+      {
+          myFirst[i].coef = 0;
+          myFirst[i].expon = 0;
+      }
+   }
+   myLast = myFirst + newSize;
+}
+
+// Removes the last element in the vector,
+// effectively reducing the container size by one.
+void vector::pop_back()
+{
+   if( size() > 0 )
+      --myLast;
+}
+
+// Removes all elements from the vector (which are destroyed),
+// leaving the container with a size of 0.
+// A reallocation is not guaranteed to happen,
+// and the vector capacity is not guaranteed to change due to calling this function.
+void vector::clear() // erase all
+{
+   myLast = myFirst;
+}
+
+// Returns whether the vector is empty (i.e. whether its size is 0).
+bool vector::empty() const
+{
+   return myFirst == myLast;
+}
+
+// Returns the number of elements in the vector.
+// This is the number of actual objects held in the vector,
+// which is not necessarily equal to its storage capacity.
+vector::size_type vector::size() const
+{
+   return static_cast< size_type >( myLast - myFirst );
+}
+
+// Returns the size of the storage space currently allocated for the vector,
+// expressed in terms of elements.
+// This capacity is not necessarily equal to the vector size.
+// It can be equal or greater, with the extra space allowing to accommodate
+// for growth without the need to reallocate on each insertion.
+vector::size_type vector::capacity() const
+{
+   return static_cast< size_type >( myEnd - myFirst );
+}
+
+// Returns a reference to the element at position "pos" in the vector container.
+vector::reference vector::at( const size_type pos )
+{
+   return myFirst[ pos ];
+}
+
+// Returns a reference to the element at position "pos" in the vector container.
+vector::const_reference vector::at( const size_type pos ) const
+{
+   return myFirst[ pos ];
+}
+
+// Returns a reference to the first element in the vector.
+// Calling this function on an empty container causes undefined behavior.
+vector::value_type& vector::front()
+{
+   return *myFirst;
+}
+
+// Returns a reference to the first element in the vector.
+// Calling this function on an empty container causes undefined behavior.
+const vector::value_type& vector::front() const
+{
+   return *myFirst;
+}
+
+bool vector::equal( const vector &right ) const
+{
+   if( size() != right.size() )
+      return false; // vectors of different number of elements
+
+   for( size_type i = 0; i < size(); ++i )      
+      if( at( i ).coef != right.at( i ).coef || at( i ).expon != right.at( i ).expon )
+         return false; // vector contents are not equal
+
+   return true; // vector contents are equal
+}
