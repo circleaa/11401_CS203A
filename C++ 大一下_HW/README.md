@@ -3,7 +3,9 @@
 - 程式語言為C++
 - 林基成老師
 
-## 內容
+---
+
+## 作業
 - hw1 : Classe:Vector
   - 完成 copy constructor
   - 完成 assign
@@ -28,6 +30,8 @@
   - 用 lists 實作 square、squareRoot
 - hw8 : Object-Oriented Programming:Inheritance
 - hw9 : Design an Object Oriented Cashbox KTV Reservation System
+
+## 考試
 - mid1 :
   - vector::insert
   - vector::resize
