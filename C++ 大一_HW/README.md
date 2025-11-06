@@ -3,7 +3,9 @@
 - 程式語言為C++
 - 林基成老師
 
-## 內容
+---
+
+## 作業
 - hw1 : 簡單程式碼判斷integer奇偶數與運算
 - hw2 : UVa題目
   - UVa 10783 - Odd Sum
@@ -28,6 +30,8 @@
     subtrings 列在 Words.txt 中
 - hw10、11 : 設計訂票系統 (Taiwan High Speed Rail Booking System)
 - hw12 : 複雜訂票系統
+
+## 考試
 - mid1 :
   - 完成 equal, addition, multiplication 和 division
   - UVa 10783 - Odd Sum (用recursive function)
