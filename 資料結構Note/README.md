@@ -2,7 +2,7 @@
 這份筆記整理了常見的基本資料結構與其特性與操作
 
 ---
-- [Array + Linked List](Array_Linked List.md)
+- [Array 筆記](Array_LinkedList.md)
 
 ## Stack（堆疊）
 後進先出（**LIFO, Last In First Out**）的結構
