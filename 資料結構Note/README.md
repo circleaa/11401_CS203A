@@ -35,15 +35,16 @@
 - **Doubly Linked List（雙向鏈結串列）**：節點有前後指標
 - **Circular Linked List（循環鏈結串列）**：最後一個節點指回第一個節點
 
-# ⏱ Array vs Linked List 時間複雜度比較
+### Array vs Linked List 時間複雜度比較
 
 | 操作類型 | Array (陣列) | Linked List (鏈結串列) | 說明 |
 |-----------|---------------|------------------------|------|
-| **存取 (Access)** | O(1) | O(n) | Array 可透過索引直接存取，Linked List 需從頭遍歷 |
-| **搜尋 (Search)** | O(n) | O(n) | 都需要線性搜尋（除非 Linked List 已排序並用特別方法） |
-| **插入 (Insert)** | O(n) | O(1) | Array 中間插入需搬移元素，Linked List 只需改指標 |
-| **刪除 (Delete)** | O(n) | O(1) | Array 中間刪除需搬移元素，Linked List 只需改指標 |
-| **插入/刪除頭尾** | 插入尾部 O(1)（dynamic array 可 amortized O(1)）<br>刪除尾部 O(1) | 頭部插入/刪除 O(1)，尾部需遍歷 O(n) (Singly Linked List) | 頭尾操作差異明顯，Stack/Queue 可用 Linked List 高效實作 |
+| **Access** | O(1) | O(n) | Array 可透過索引直接存取，Linked List 需從頭遍歷 |
+| **Search** | O(n) | O(n) | 都需要線性搜尋 |
+| **Insert** | O(n) | O(n) | Array 中間插入需搬移元素，Linked List 只需改指標 |
+| **Insert at front** | O(n) | O(1) | Linked List 有 head 指標 |
+| **Insert at end** | O(1) | O(n) | 若 Linked List 使用 tail(尾指標)就只需 O(1) |
+| **Delete** | O(n) | O(n) | 若 Linked List 已知 node pointer 就只需O(1) |
 
 ---
 
