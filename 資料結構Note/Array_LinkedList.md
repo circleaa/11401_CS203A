@@ -46,6 +46,8 @@
 | **Swap** | O(1) | O(1) | Linked List swap by values |
 | **Traversal between elements** | O(1) | O(n) | Linked List 需用 pointer |
 
+---
+
 ### Array vs Linked List 其他比較
 
 | 特性 | Array | Linked List |
