@@ -35,21 +35,38 @@
 - **Doubly Linked List（雙向鏈結串列）**：節點有前後指標
 - **Circular Linked List（循環鏈結串列）**：最後一個節點指回第一個節點
 
+---
+
 ### Array vs Linked List 時間複雜度比較
 
-| 操作類型 | Array (陣列) | Linked List (鏈結串列) | 說明 |
+| 操作類型 | Array | Linked List | 說明 |
 |-----------|---------------|------------------------|------|
-| **Access** | O(1) | O(n) | Array 可透過索引直接存取，Linked List 需從頭遍歷 |
+| **Access** | O(1) | O(n) | Array 可透過索引直接存取，Linked List 需從頭訪問 |
 | **Search** | O(n) | O(n) | 都需要線性搜尋 |
 | **Insert** | O(n) | O(n) | Array 中間插入需搬移元素，Linked List 只需改指標 |
 | **Insert at front** | O(n) | O(1) | Linked List 有 head 指標 |
 | **Insert at end** | O(1) | O(n) | 若 Linked List 使用 tail(尾指標)就只需 O(1) |
 | **Delete** | O(n) | O(n) | 若 Linked List 已知 node pointer 就只需O(1) |
+| **Find minimum** | O(n) | O(n) | 都需 scan 所有元素 |
+| **Swap** | O(1) | O(1) | Linked List swap by values |
+| **Traversal between elements** | O(1) | O(n) | Linked List 需用 pointer |
+
+### Array vs Linked List 其他比較
+
+| 特性 | Array | Linked List |
+|-----------|---------------|------------------------|
+| **Memory allocation** | 連續 memory 區塊 | 不連續，nodes 動態分配 |
+| **Size** | 固定 | 可在 runtime 時增/減 |
+| **Access** | 直接由 index 訪問 O(1) | 依序訪問 O(n) | 
+| **額外 variables** | i, j, min_idx, MAX_SIZE | head, current, next, min_node |
+| **Traversal** | 快 | 慢(非連續區塊，要用 pointers) |
+| **Overhead** | 小的 memory 開銷 | 需額外的 memory 給 pointers |
+| **Flexibility** | Fixed size(需 reallocation) | Dynamic size(容易 insert/delete) |
+| **Overall** | 適合固定大小和頻繁訪問 | 適合頻繁上傳動態資料 |
 
 ---
 
 ## Stack（堆疊）
-
 後進先出（**LIFO, Last In First Out**）的結構
 
 ### 主要操作
