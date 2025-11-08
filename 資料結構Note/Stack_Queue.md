@@ -1,4 +1,4 @@
-## Stack（堆疊）
+## Stack
 後進先出（**LIFO, Last In First Out**）的結構
 
 ### 主要操作
@@ -17,7 +17,7 @@
 
 ---
 
-## Queue（佇列）
+## Queue
 
 先進先出（**FIFO, First In First Out**）的結構
 
