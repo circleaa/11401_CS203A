@@ -36,3 +36,14 @@
 - BFS（廣度優先搜尋）
 
 ---
+
+# Stack / Queue：Array vs Linked List 實作比較
+
+| 實作方式 | 記憶體配置 | 主要操作時間複雜度 | 優點 | 缺點 |
+|-----------|------------|----------------------|------|------|
+| **Stack (Array-based)** | 連續記憶體（固定或動態陣列） | `push` / `pop`：O(1) | 實作簡單、存取快、cache 效率高 | 大小需預先設定（static array）或需重新配置（dynamic array） |
+| **Stack (Linked List-based)** | 分散記憶體（節點用指標相連） | `push` / `pop`：O(1) | 不需預先知道大小、插入刪除靈活 | 額外指標記憶體開銷大、cache 效率差 |
+| **Queue (Array-based)** | 連續記憶體 | `enqueue` / `dequeue`：O(1)（若使用循環佇列） | 結構簡單、易於管理 | 若不使用循環佇列會造成空間浪費；動態擴展麻煩 |
+| **Queue (Linked List-based)** | 分散記憶體 | `enqueue` / `dequeue`：O(1) | 動態大小，不需搬移元素 | 額外指標開銷、cache 效率差 |
+
+---
