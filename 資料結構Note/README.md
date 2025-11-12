@@ -4,6 +4,7 @@
 ---
 - [Array + Linked List 筆記](Array_LinkedList.md)
 - [Stack + Queue 筆記](Stack_Queue.md)
+- [Hashing 筆記](Hashing.md)
 
 ### Array、Linked List、Stack、Queue 的 ADT 操作與特性比較
 
