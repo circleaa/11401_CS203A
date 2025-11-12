@@ -5,7 +5,7 @@
 - [Array + Linked List 筆記](Array_LinkedList.md)
 - [Stack + Queue 筆記](Stack_Queue.md)
 
-# Array、Linked List、Stack、Queue 的 ADT 操作與特性比較
+### Array、Linked List、Stack、Queue 的 ADT 操作與特性比較
 
 | 操作 / 資料結構 | **Array** | **Linked List** | **Stack** | **Queue** |
 |------------------|------------|-----------------|------------|------------|
