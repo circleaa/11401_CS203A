@@ -49,6 +49,6 @@
 
 ---
 
-## ⚙️ Load Factor（載入因子）
+## Load Factor（載入因子）
 
 
