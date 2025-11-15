@@ -24,7 +24,6 @@ int myHashInt(int key, int m) {
 
 int myHashString(const char* str, int m) {
     unsigned long hash = 0;
-
     if (m <= 0) { //檢查 table sizes 不可 <= 0
         fprintf(stderr, "Error: table size m must be > 0.\n");
         return -1;
