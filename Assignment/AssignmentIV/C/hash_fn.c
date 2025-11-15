@@ -14,12 +14,27 @@
 #include <stdio.h>
 
 int myHashInt(int key, int m) {
-    // TODO: replace with your own design
+    if (m <= 0) { //檢查 table sizes 不可 <= 0
+        fprintf(stderr, "Error: table size m must be > 0.\n");
+        return -1;
+    }
+
     return key % m;  // division method example
 }
 
 int myHashString(const char* str, int m) {
     unsigned long hash = 0;
-    // TODO: replace with your own design
+
+    if (m <= 0) { //檢查 table sizes 不可 <= 0
+        fprintf(stderr, "Error: table size m must be > 0.\n");
+        return -1;
+    }
+    if (str == NULL) { //錯誤處理無字串
+        fprintf(stderr, "Error: string key is NULL.\n");
+        return -1;
+    }
+    if (str[0] == '\0')  //處理空字串，放到index=0
+        return 0;
+
     return (int)(hash % m); // basic division method
 }
