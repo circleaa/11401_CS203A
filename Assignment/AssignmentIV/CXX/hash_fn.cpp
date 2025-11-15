@@ -22,9 +22,9 @@ int myHashInt(int key, int m) {
     //return key % m;  // basic division method
     
     //Multiplication Method
-    const double A = 0.618;
-    double frac = (key * A)- floor(key * A);
-    return int(m*frac);
+    const double A = 0.618; // 黃金比例倒數
+    double frac = (key * A)- floor(key * A); ////只取小數部分不然數值太大
+    return int(m * frac);
 }
 
 int myHashString(const std::string& str, int m) {
