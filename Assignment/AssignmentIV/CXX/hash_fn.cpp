@@ -11,11 +11,17 @@
 
    Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
  */
+
+//g++ main.cpp -o hash_test
+//./hash_test
 #include <string>
+#include <cstdlib>
+#include <cstdint>
 
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
-    return key % m;  // basic division method
+    //return key % m;  // basic division method
+    return (key + 11) % m;
 }
 
 int myHashString(const std::string& str, int m) {

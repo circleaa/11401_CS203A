@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.v": "verilog",
+        "string": "cpp",
+        "cstdlib": "cpp",
+        "cstdint": "cpp"
+    }
+}
