@@ -15,17 +15,28 @@
 //g++ main.cpp -o hash_test
 //./hash_test
 #include <string>
-#include <cstdlib>
-#include <cstdint>
+#include <cmath>
 
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
     //return key % m;  // basic division method
-    return (key + 11) % m;
+    
+    //Multiplication Method
+    const double A = 0.618;
+    double frac = (key * A)- floor(key * A);
+    return int(m*frac);
 }
 
 int myHashString(const std::string& str, int m) {
     unsigned long hash = 0;
     // TODO: replace with your own design
-    return static_cast<int>(hash % m);  // basic division method
+    //return static_cast<int>(hash % m);  // basic division method
+
+    //Multiplication Method
+    const int base = 31;
+    double A = 0.168;
+    for (char c : str) //把字串轉成數字
+        hash = hash * base + c; 
+    double frac = hash*A - floor(hash*A); //取小數部分
+    return int (m * frac);
 }
