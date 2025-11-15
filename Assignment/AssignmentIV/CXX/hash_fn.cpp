@@ -16,11 +16,15 @@
 //./hash_test
 #include <string>
 #include <cmath>
+#include <stdexcept>
 
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
     //return key % m;  // basic division method
     
+    if (m <= 0) //檢查 table sizes 不可 <= 0
+        throw std::invalid_argument("table size m must be > 0");
+
     //Multiplication Method
     const double A = 0.618; // 黃金比例倒數
     double frac = (key * A)- floor(key * A); ////只取小數部分不然數值太大
@@ -31,6 +35,11 @@ int myHashString(const std::string& str, int m) {
     unsigned long hash = 0;
     // TODO: replace with your own design
     //return static_cast<int>(hash % m);  // basic division method
+
+    if (m <= 0) //檢查 table sizes 不可 <= 0
+        throw std::invalid_argument("table size m must be > 0");
+    if (str.empty()) //處理空字串
+        return 0;
 
     //Multiplication Method
     const int base = 31;
