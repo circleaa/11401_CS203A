@@ -1,19 +1,15 @@
 ## Initial
 ### Integer Hash 
-m=10: unique indices=10 collisions=10
-m=11: unique indices=11 collisions=9
-m=37: unique indices=17 collisions=3
+| table sizes (m) | Key Indices | **unique indices** | **collisions** |
+|------------------|------------|-----------------|------------|
+| **m=10** | 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0 | 10 | 10 |
+| **m=11** | 10,0,1,2,3,4,5,6,7,8,7,8,9,10,0,1,2,3,4,5 | 11 | 9 |
+| **m=37** | 21,22,23,24,25,26,27,28,29,30,14,15,16,17,18,19,20,21,22,23 | 17 | 3 |
 ### String Hash 
-m=10: unique indices=1 collisions=9
-m=11: unique indices=1 collisions=9
-m=37: unique indices=1 collisions=9
+| table sizes (m) | Key Indices | **unique indices** | **collisions** |
+|------------------|------------|-----------------|------------|
+| **m=10** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 |
+| **m=11** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 |
+| **m=37** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 |
 
 ## Version1 - 
-### Integer Hash 
-m=10: unique indices=10 collisions=10
-m=11: unique indices=11 collisions=9
-m=37: unique indices=17 collisions=3
-### String Hash 
-m=10: unique indices=1 collisions=9
-m=11: unique indices=1 collisions=9
-m=37: unique indices=1 collisions=9
