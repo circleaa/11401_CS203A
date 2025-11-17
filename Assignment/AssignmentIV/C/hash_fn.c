@@ -9,7 +9,7 @@
    Development History:
     - 2025/11/11: Initial implementation
 
-   Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
+   Developer: Yu-Jia Wang 王郁佳 <s1121430@mail.yzu.edu.tw> <ariel940814@gmail.com>
  */
 #include <stdio.h>
 
