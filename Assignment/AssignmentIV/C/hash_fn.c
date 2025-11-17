@@ -19,7 +19,14 @@ int myHashInt(int key, int m) {
         return -1;
     }
 
-    return key % m;  // division method example
+    //return key % m;  // division method example
+
+    //Multiplication Method
+    const double A = 0.618; // 黃金比例倒數
+    double ka = key * A;
+    double frac = ka - (int)ka;    // 取小數部分 = ka mod 1
+    int index = (int)(m * frac);
+    return index;
 }
 
 int myHashString(const char* str, int m) {
@@ -35,5 +42,17 @@ int myHashString(const char* str, int m) {
     if (str[0] == '\0')  //處理空字串，放到index=0
         return 0;
 
-    return (int)(hash % m); // basic division method
+    //return (int)(hash % m); // basic division method
+
+    //Multiplication Method
+    const double A = 0.618; // 黃金比例倒數
+    const int base = 31;
+    unsigned long long k = 0;
+    for (int i = 0; str[i] != '\0'; i++) { // 將字串轉成數字
+        k = k * base + (unsigned char)str[i];
+    }
+    double ka = k * A;
+    double frac = ka - (unsigned long long)ka; //只取小數部分
+    int index = (int)(m * frac);
+    return index;
 }

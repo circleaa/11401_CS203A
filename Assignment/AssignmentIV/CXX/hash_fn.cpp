@@ -23,9 +23,10 @@ int myHashInt(int key, int m) {
         throw std::invalid_argument("table size m must be > 0");
 
     //return key % m;  // basic division method
+
     //Multiplication Method
     const double A = 0.618; // 黃金比例倒數
-    double frac = (key * A)- floor(key * A); ////只取小數部分不然數值太大
+    double frac = (key * A)- floor(key * A); //只取小數部分不然數值太大
     return int(m * frac);
 }
 
@@ -37,6 +38,7 @@ int myHashString(const std::string& str, int m) {
         return 0;
 
     //return static_cast<int>(hash % m);  // basic division method
+
     //Multiplication Method
     const int base = 31;
     double A = 0.168;
