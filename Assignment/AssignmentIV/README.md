@@ -50,9 +50,9 @@ evaluate their efficiency, and understand their applications in computer science
 **String Hash**  
 | Table Size (m) | Index Sequence | **Collision Rate** | **Observation** |
 |----------------|----------------|----------------|-------------|
-| 10 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **all zero** |
-| 11 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **all zero** |
-| 37 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **all zero** |
+| 10 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **All zero** |
+| 11 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **All zero** |
+| 37 | 0,0,0,0,0,0,0,0,0,0 | 9/10=**90%** | **All zero** |
  ---
 ### Multiplication Method -> h(k) = floor(m*(k*A mod 1))
 **Integer Hash** 
@@ -112,6 +112,8 @@ evaluate their efficiency, and understand their applications in computer science
 
 ### Result Snapshot
 - Example output for integers:
+![C++ Hash Function Result1](Images/C++1.png)
+![C++ Hash Function Result2](Images/C++2.png)
   ```
   === Hash Function Observation (C Version) ===
 
