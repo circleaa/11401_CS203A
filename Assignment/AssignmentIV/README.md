@@ -42,13 +42,13 @@ evaluate their efficiency, and understand their applications in computer science
 ### Initial - Division Method -> h(k) = k mod m
  - Integer Hash 
 | Table Size (m) | Index Sequence | **Unique Indices** | **Collisions** | **Collision Rate** | **Observation** |
-|---------------|------------|-----------------|------------|------------|------------|
+|------------------|------------|-----------------|------------|------------|--------------|
 | **m=10** | 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0 | 10 | 10 | 50% | Pattern repeats every 10 |
 | **m=11** | 10,0,1,2,3,4,5,6,7,8,7,8,9,10,0,1,2,3,4,5 | 11 | 9 | 45% | More uniform |
 | **m=37** | 21,22,23,24,25,26,27,28,29,30,14,15,16,17,18,19,20,21,22,23 | 17 | 3 | 15% | Near-uniform |
  - String Hash 
 | Table Size (m) | Index Sequence | **Unique Indices** | **Collisions** | **Collision Rate** | **Observation** |
-|---------------|------------|-----------------|------------|------------|------------|
+|------------------|------------|-----------------|------------|------------|--------------|
 | **m=10** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 | 90% | all zero |
 | **m=11** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 | 90% | all zero |
 | **m=37** | 0,0,0,0,0,0,0,0,0,0 | 1 | 9 | 90% | all zero |
@@ -56,13 +56,13 @@ evaluate their efficiency, and understand their applications in computer science
 ### Multiplication Method -> h(k) = floor(m*(k*A mod 1))
  - Integer Hash 
 | Table Size (m) | Index Sequence | **Unique Indices** | **Collisions** | **Collision Rate** | **Observation** |
-|---------------|------------|-----------------|------------|------------|------------|
+|------------------|------------|-----------------|------------|------------|--------------|
 | **m=10** | 9,5,2,8,4,0,6,3,9,5,5,1,7,3,9,6,2,8,4,0 | 10 | 10 | 50% | Pattern repeats every 10 |
 | **m=11** | 10,6,2,9,4,0,7,3,10,5,5,1,8,4,10,6,2,9,5,0 | 11 | 9 | 45% | More uniform |
 | **m=37** | 36,22,7,30,16,2,25,11,34,19,19,5,27,13,36,22,8,31,17,2 | 16 | 4 | 20% | Near-uniform |
  - String Hash 
 | Table Size (m) | Index Sequence | **Unique Indices** | **Collisions** | **Collision Rate** | **Observation** |
-|---------------|------------|-----------------|------------|------------|------------|
+|------------------|------------|-----------------|------------|------------|--------------|
 | **m=10** | 9,9,0,9,1,2,3,3,8,2 | 6 | 4 | 40% | Near-uniform |
 | **m=11** | 10,10,0,10,1,2,4,3,9,3 | 7 | 3 | 30% | Near-uniform |
 | **m=37** | 33,36,0,36,6,8,14,12,30,10 | 9 | 1 | 10% | Near-uniform |
