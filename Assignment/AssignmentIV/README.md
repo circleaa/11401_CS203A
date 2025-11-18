@@ -111,16 +111,16 @@ evaluate their efficiency, and understand their applications in computer science
   ```
 
 ### Result Snapshot
-C++ Version  
- - Example output for integers:
-<img src="Images/C++1.png" width="300">
- - Example output for strings:
+ - C++ Version  
+Example output for integers:  
+<img src="Images/C++1.png" width="300">  
+Example output for strings:  
 <img src="Images/C++2.png" width="300">
----
-C Version  
- - Example output for integers:
-<img src="Images/C++2.png" width="300">
- - Example output for strings:
+
+ - C Version  
+Example output for integers:
+<img src="Images/C++2.png" width="300">  
+Example output for strings:  
 <img src="Images/C++2.png" width="300">
 
   ```
