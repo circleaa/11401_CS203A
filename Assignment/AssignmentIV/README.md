@@ -11,16 +11,24 @@ Email: <s1121430@mail.yzu.edu.tw> <ariel940814@gmail.com>
 ### Integer Keys 
 - Formula / pseudocode:
   ```text
-  [Your implementation here]
+    const double A = 0.618; // 黃金比例倒數
+    double frac = (key * A)- floor(key * A); //只取小數部分不然數值太大
+    return int(m * frac);
   ```
 - Rationale: h(k) = floor(m*(k*A mod 1)), 0 < A < 1 (研究顯示A 約 0.618時效果最好)
 
 ### Non-integer Keys
 - Formula / pseudocode:
   ```text
-  [Your implementation here]
+    unsigned long hash = 0;
+    const int base = 31;
+    double A = 0.168;
+    for (char c : str) //把字串轉成數字
+        hash = hash * base + c; 
+    double frac = hash*A - floor(hash*A); //取小數部分
+    return int (m * frac);
   ```
-- Rationale: [Explain your approach and its effectiveness for non-integer keys.]
+- Rationale: h(k) = floor(m*(k*A mod 1)), 0 < A < 1 (研究顯示A 約 0.618時效果最好)
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37
