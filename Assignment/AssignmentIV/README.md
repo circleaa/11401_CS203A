@@ -111,9 +111,22 @@ evaluate their efficiency, and understand their applications in computer science
   ```
 
 ### Result Snapshot
+C++ Version  
 - Example output for integers:
 ![C++ Hash Function Result1](Images/C++1.png)
+<img src="Images/C++1.png" width="300">
+- Example output for strings:
 ![C++ Hash Function Result2](Images/C++2.png)
+<img src="Images/C++2.png" width="300">
+ ---
+C Version  
+- Example output for integers:
+![C Hash Function Result1](Images/C1.png)
+<img src="Images/C++2.png" width="300">
+- Example output for strings:
+![C Hash Function Result2](Images/C2.png)
+<img src="Images/C++2.png" width="300">
+
   ```
   === Hash Function Observation (C Version) ===
 
