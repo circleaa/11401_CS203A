@@ -41,11 +41,11 @@ evaluate their efficiency, and understand their applications in computer science
 ## Results
 ### Initial - Division Method -> h(k) = k mod m
  - Integer Hash  
-| Table Size (m) | Index Sequence | Unique Indices | Collisions | **Collision Rate** | **Observation** |
-|----------------|----------------|-----------------|------------|----------------|-------------|
-| m=10 | 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0 | 10 | 10 | **50%** | **Pattern repeats every 10** |
-| m=11 | 10,0,1,2,3,4,5,6,7,8,7,8,9,10,0,1,2,3,4,5 | 11 | 9 | **45%** | **More uniform** |
-| m=37 | 21,22,23,24,25,26,27,28,29,30,14,15,16,17,18,19,20,21,22,23 | 17 | 3 | **15%** | **Near-uniform** |
+ | Table Size (m) | Index Sequence | Unique Indices | Collisions | **Collision Rate** | **Observation** |
+ |----------------|----------------|-----------------|------------|----------------|-------------|
+ | m=10 | 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0 | 10 | 10 | **50%** | **Pattern repeats every 10** |
+ | m=11 | 10,0,1,2,3,4,5,6,7,8,7,8,9,10,0,1,2,3,4,5 | 11 | 9 | **45%** | **More uniform** |
+ | m=37 | 21,22,23,24,25,26,27,28,29,30,14,15,16,17,18,19,20,21,22,23 | 17 | 3 | **15%** | **Near-uniform** |
  - String Hash  
 | Table Size (m) | Index Sequence | Unique Indices | Collisions | **Collision Rate** | **Observation** |
 |----------------|----------------|-----------------|------------|----------------|-------------|
