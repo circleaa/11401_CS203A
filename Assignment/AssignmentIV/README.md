@@ -124,17 +124,23 @@ Example output for strings:
 
 ## Analysis
 - Integer Keys 分析
- 1. 小的 table size（m = 10, 11）碰撞率高是一定的，因為總共有 20 個 keys，但可存的空間卻只有一半的大小。因此，無論使用 Division method 還是 Multiplication method，都會得到 50% 或 45% 的碰撞率
+ 1. 小的 table size（m = 10, 11）碰撞率高是一定的，因為總共有 20 個 keys，但可存的空間卻只有一半的大小。因此，無論使用 Division method 還是 Multiplication method，都會得到較高的碰撞率
  2. m = 37 時出現「接近均勻」分布，m = 37 是質數，而且與 key pattern 沒有明顯週期關係，因此 Division 和 Multiplication 兩種方法都算「非常良好」，屬於 near-uniform  
  至於 Division 的碰撞率在這個案例略低於 Multiplication，是因為 k mod 37 剛好把兩段 key 均攤地分散在不同 index 區間，這是數據上的自然巧合，不代表 Division method 總是比較好
 - String Keys 分析
  1. 結果顯示 table size 越大，結果越好(碰撞率越低)
-- 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可避免「週期性」碰撞，且質數可避免「公因數問題」，防止所有 key 都被映射到同一個 bucket
 
 ## Reflection
-1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
-2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
-3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
+- Hash 函數的好壞，必須同時看「資料特性」與「m 的選擇」 
+1. Division method 適合 m 為質數、避免 key 有週期性  
+2. Multiplication method 不依賴 m，對「相似key」表現比較穩定  
+3. 但當資料量太少或 m 太小時，兩種方法差異不大
+- Division 與 Multiplication method 比較
+1. Multiplication method 對隨機資料，分布會更均勻
+2. 而 Division method 較適合實作規律資料
+- Table size (m) 為質數與非質數
+1. 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可避免「週期性」碰撞，且可避免「公因數問題」，防止所有 key 都被映射到同一個 bucket
+2. Multiplication method 的分布品質較穩定，不太依賴 m 是否為質數
 
 ## GitHub Upload
 - Select the file tp upload
