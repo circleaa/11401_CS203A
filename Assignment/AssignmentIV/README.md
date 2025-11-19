@@ -120,25 +120,16 @@ Example output for integers:
 Example output for strings:  
 <img src="Images/C2.png" width="300">
 
-- Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
-- Example output for integers:
-  ```
-  Hash table (m=10): [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  Hash table (m=11): [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  Hash table (m=37): [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, ...]
-  ```
-- Example output for strings:
-  ```
-  Hash table (m=10): ["cat", "dog", "bat", "cow", "ant", ...]
-  Hash table (m=11): ["fox", "cat", "dog", "bat", "cow", ...]
-  Hash table (m=37): ["bee", "hen", "pig", "fox", "cat", ...]
-  ```
-- Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
+- Observations: 發現 table size 越大，結果越好(碰撞率越低)
 
 ## Analysis
-- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
-- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
-- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
+- Integer Keys 分析
+ 1. 小的 table size（m = 10, 11）碰撞率高是一定的，因為總共有 20 個 keys，但可存的空間卻只有一半的大小。因此，無論使用 Division method 還是 Multiplication method，都會得到 50% 或 45% 的碰撞率
+ 2. m = 37 時出現「接近均勻」分布，m = 37 是質數，而且與 key pattern 沒有明顯週期關係，因此 Division 和 Multiplication 兩種方法都算「非常良好」，屬於 near-uniform  
+ 至於 Division 的碰撞率在這個案例略低於 Multiplication，是因為 k mod 37 剛好把兩段 key 均攤地分散在不同 index 區間，這是數據上的自然巧合，不代表 Division method 總是比較好
+- String Keys 分析
+ 1. 結果顯示 table size 越大，結果越好(碰撞率越低)
+- 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可避免「週期性」碰撞，且質數可避免「公因數問題」，防止所有 key 都被映射到同一個 bucket
 
 ## Reflection
 1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
