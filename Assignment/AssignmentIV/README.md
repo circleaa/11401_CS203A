@@ -95,7 +95,7 @@ Division method（% m）會很容易被看出規律，較適合去處理連續�
 | 11 | 10,10,0,10,1,2,4,3,9,3 | 3/10=**30%** | **Near-uniform** |
 | 37 | 33,36,0,36,6,8,14,12,30,10 | 1/10=**10%** | **Near-uniform** |
 
-## Compilation, Build, Execution, and Output
+## Compilation, Execution, and Output
 ### Compilation、Execution
 - Command for C++: 
   ```bash
@@ -144,3 +144,17 @@ Example output for strings:
 1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
 2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
 3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
+
+## GitHub Upload
+- Select the file tp upload
+```bash
+  git add Assignment/AssignmentIV
+```
+- Commit
+```bash
+  git commit -m "command..."
+```
+- Push
+```bash
+  git push origin main --force
+```
