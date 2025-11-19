@@ -1,32 +1,55 @@
 # Homework Assignment IV: Hash Function Design & Observation (C/C++ Version)
 
-This assignment focuses on the design and observation of hash functions using C/C++. 
-Students are expected to implement and analyze the behavior of hash functions, 
-evaluate their efficiency, and understand their applications in computer science.
-
- - Developer: Yu-Jia Wang 王郁佳 
- - Email: <s1121430@mail.yzu.edu.tw> / <ariel940814@gmail.com>  
-
-## My Hash Function
+- Developer: Yu-Jia Wang 王郁佳 
+- Email: <s1121430@mail.yzu.edu.tw> / <ariel940814@gmail.com> 
+ ---
+## My Hash Function (C++ Version)
+- 我使用較常見的一種方法來做實作: **Multiplication Method**  
+Multiplication method 是 Donald Knuth 在 TAOCP 中提出的 Hashing 方法。
+它使用「乘法 + 小數部分」來把 key **均勻分佈**到 Hash Table 中。
+```text
+    標準公式：h(k)=⌊m(kAmod1)⌋
+    其中：
+        - k = 你的 key（整數）
+        - m = hash table 大小
+        - A = 一個固定常數（0 < A < 1) 通常選 A = (√5 – 1)/2 = 0.6180339887...
+```    
+- Multiplication method的好處  
+Division method（% m）會很容易被看出規律，較適合去處理連續的 keys  
+而 Multiplication method 則是透過「**小數部分**」去**破壞規律、避免週期性**，使處理過後的 key 值像亂數一樣分布
 ### Integer Keys 
 - Formula / pseudocode:
   ```text
-    const double A = 0.618; // 黃金比例倒數
-    double frac = (key * A)- floor(key * A); //只取小數部分不然數值太大
-    return int(m * frac);
+    int myHashInt(int key, int m) {
+        if (m <= 0) //檢查 table sizes 不可 <= 0
+            throw std::invalid_argument("table size m must be > 0");
+
+        //Multiplication Method
+        const double A = 0.618; // 黃金比例倒數
+        double frac = (key * A)- floor(key * A); //只取小數部分不然數值太大
+        return int(m * frac);
+    }
   ```
 - Rationale: h(k) = floor(m*(k*A mod 1)), 0 < A < 1 (研究顯示A 約 0.618時效果最好)
 
 ### Non-integer Keys
 - Formula / pseudocode:
   ```text
-    unsigned long hash = 0;
-    const int base = 31;
-    double A = 0.168;
-    for (char c : str) //把字串轉成數字
-        hash = hash * base + c; 
-    double frac = hash*A - floor(hash*A); //取小數部分
-    return int (m * frac);
+    int myHashString(const std::string& str, int m) {
+        unsigned long hash = 0;
+        if (m <= 0) //檢查 table sizes 不可 <= 0
+            throw std::invalid_argument("table size m must be > 0");
+        if (str.empty()) //處理空字串，放到index=0
+            return 0;
+
+        //Multiplication Method
+        const int base = 31;
+        double A = 0.168;
+        for (char c : str) //把字串轉成數字
+            hash = hash * base + c; 
+        double frac = hash*A - floor(hash*A); //取小數部分
+        return int (m * frac);
+    }
   ```
 - Rationale: h(k) = floor(m*(k*A mod 1)), 0 < A < 1 (研究顯示A 約 0.618時效果最好)
 
