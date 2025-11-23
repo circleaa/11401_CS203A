@@ -19,8 +19,8 @@
           黃金比例 φ 則是最不理性的無理數(最不可能與 key 發生同步 patterns 的數字)
 ```    
 - Multiplication method的好處：  
-1. Division method（% m）會很容易被看出規律，較適合去處理連續的 key 值。  
-2. Multiplication method 則是透過「**小數部分**」去**破壞規律、避免週期性**，使處理過後的 key 值像亂數一樣分布。它**不依賴於 hash table 的大小**，可在 hash table 大小改變時保持較好的分布。
+  1. Division method（% m）會很容易被看出規律，較適合去處理連續的 key 值。  
+  2. Multiplication method 則是透過「**小數部分**」去**破壞規律、避免週期性**，使處理過後的 key 值像亂數一樣分布。它**不依賴於 hash table 的大小**，可在 hash table 大小改變時保持較好的分布。
 ### Integer Keys 
 - Formula / pseudocode:
   ```text
@@ -145,38 +145,38 @@ Example output for strings:
 
 ## Analysis
 - Integer Keys 分析
- 1. 小的 table size（m = 10, 11）碰撞率高是一定的，因為總共有 20 個 keys，但可存的空間卻只有一半的大小。因此，無論使用 Division method 還是 Multiplication method，都會得到較高的碰撞率。
- 2. m = 37 時出現「接近均勻」分布，m = 37 是質數，而且與 key pattern 沒有明顯週期關係，因此 Division 和 Multiplication 兩種方法都算「非常良好」，屬於 near-uniform。
- 3. 至於 Division 的碰撞率在這個案例略低於 Multiplication，是因為 k mod 37 剛好把兩段 key 均攤地分散在不同 index 區間，這是數據上的自然巧合，不代表 Division method 總是比較好。
+  1. 小的 table size（m = 10, 11）碰撞率高是一定的，因為總共有 20 個 keys，但可存的空間卻只有一半的大小。因此，無論使用 Division method 還是 Multiplication method，都會得到較高的碰撞率。
+  2. m = 37 時出現「接近均勻」分布，m = 37 是質數，而且與 key pattern 沒有明顯週期關係，因此 Division 和 Multiplication 兩種方法都算「非常良好」，屬於 near-uniform。
+  3. 至於 Division 的碰撞率在這個案例略低於 Multiplication，是因為 k mod 37 剛好把兩段 key 均攤地分散在不同 index 區間，這是數據上的自然巧合，不代表 Division method 總是比較好。
 - String Keys 分析
- 1. 結果顯示 table size 越大，結果越好(碰撞率越低)。
- 2. 三個 table sizes 所得出的碰撞結果都不錯，因為 string keys 只有10個，不像 integer keys 有20個，與 table sizes 大小差距過大。
+  1. 結果顯示 table size 越大，結果越好(碰撞率越低)。
+  2. 三個 table sizes 所得出的碰撞結果都不錯，因為 string keys 只有10個，不像 integer keys 有20個，與 table sizes 大小差距過大。
 - 延伸
- 1. 可添加一些無規律的 string keys，看由 Multiplication method 所做出的結果是不是比 Division method 還要好。
- 2. 使用更多不同的 table sizes 去實作。
+  1. 可添加一些無規律的 string keys，看由 Multiplication method 所做出的結果是不是比 Division method 還要好。
+  2. 使用更多不同的 table sizes 去實作。
 
 ## Reflection
 - Hash Function 的好壞，必須同時看「資料特性」與「m 的選擇」 
-1. Division method **適合 m 為質數**、避免 key 有週期性。
-2. Multiplication method 不依賴 m，對「相似key」表現比較穩定。
-3. 但當資料量太少或 m 太小時，兩種方法差異不大。
+  1. Division method **適合 m 為質數**、避免 key 有週期性。
+  2. Multiplication method 不依賴 m，對「相似key」表現比較穩定。
+  3. 但當資料量太少或 m 太小時，兩種方法差異不大。
 - Division 與 Multiplication method 比較
-1. Multiplication method 對**隨機資料**，分布會更均勻。
-2. 而 Division method 較適合實作**規律資料**。
+  1. Multiplication method 對**隨機資料**，分布會更均勻。
+  2. 而 Division method 較適合實作**規律資料**。
 - Table size (m) 為質數與非質數
-1. 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可**避免「週期性」碰撞**，且可**避免「公因數問題」**，防止所有 key 都被映射到同一個 bucket。
-2. Multiplication method 的分布品質較穩定，不太依賴 m 是否為質數。
+  1. 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可**避免「週期性」碰撞**，且可**避免「公因數問題」**，防止所有 key 都被映射到同一個 bucket。
+  2. Multiplication method 的分布品質較穩定，不太依賴 m 是否為質數。
 - 怎麼讓 hash 結果看起來均勻分布?
-1. 減少 collision -> 不要讓相近的 key 得到相近的 hash 值
-  - 要分散資料分布!
-  - **把 key 均勻打散，減少落到同一個 index 的機率**
-2. 避免「週期性」與 key pattern 同步
-  - m 選 質數
-  - m 選 key 多樣性較大的數
-  - 使用 multiplication method（較不受 key 週期影響）
-  - **消除與 key 的規律同步，確保每個位置平均承擔資料**
-3. 避免簡單線性 hash，改用非線性組合
-  - **非線性混合更能打散 key**
+  1. 減少 collision → 不要讓相近的 key 得到相近的 hash 值
+    - 要分散資料分布!
+    - **把 key 均勻打散，減少落到同一個 index 的機率**
+  2. 避免「週期性」與 key pattern 同步
+    - m 選 質數
+    - m 選 key 多樣性較大的數
+    - 使用 multiplication method（較不受 key 週期影響）
+    - **消除與 key 的規律同步，確保每個位置平均承擔資料**
+  3. 避免簡單線性 hash，改用非線性組合
+    - **非線性混合更能打散 key**
 
 ## GitHub Upload
 - Select the file tp upload
