@@ -2,6 +2,9 @@
 - Developer: Yu-Jia Wang 王郁佳 
 - Email: <s1121430@mail.yzu.edu.tw> / <ariel940814@gmail.com> 
  ---
+## 程式執行環境
+- 在 VSCode 中啟動 WSL: Ubuntu
+
 ## My Hash Function (C++ Version)
 - 使用較常見的 hash function 實作方法: **Multiplication Method** 
 - 參考網路上: [網路參考連結](https://hackmd.io/@Zero871015/DSNote-20)
@@ -104,6 +107,22 @@
   ```bash
   Compile: gcc -std=c++17 -O2 main.c -o conv
   Run: ./conv
+  ```
+- The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
+  ```bash
+  # Build both C and C++ versions
+  make all
+  
+  # Build only C version
+  make c
+  
+  # Build only C++ version
+  make cxx
+  ```
+### Clean Build Files
+- Remove all compiled files:
+  ```bash
+  make clean
   ```
 ### Result Snapshot
  - C++ Version  
