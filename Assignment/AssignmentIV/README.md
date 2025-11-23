@@ -137,7 +137,11 @@ Example output for integers:
 Example output for strings:  
 <img src="Images/C2.png" width="300">
 
-- Observations: 發現 table size 越大，結果越好(碰撞率越低)
+### Observations
+- 發現 table size 越大，結果越好(碰撞率越低)
+- m 選質數（或至少不要太小）→ 會明顯改善分布
+- Division method 容易被 key 的結構卡住
+- Multiplication method 對 key 比較不敏感 → 分布通常更均勻
 
 ## Analysis
 - Integer Keys 分析
@@ -152,7 +156,7 @@ Example output for strings:
  2. 使用更多不同的 table sizes 去實作。
 
 ## Reflection
-- Hash 函數的好壞，必須同時看「資料特性」與「m 的選擇」 
+- Hash Function 的好壞，必須同時看「資料特性」與「m 的選擇」 
 1. Division method **適合 m 為質數**、避免 key 有週期性。
 2. Multiplication method 不依賴 m，對「相似key」表現比較穩定。
 3. 但當資料量太少或 m 太小時，兩種方法差異不大。
@@ -162,6 +166,17 @@ Example output for strings:
 - Table size (m) 為質數與非質數
 1. 在 Division method 中， table size 為質數或非質數會有很大的影響。若 table size 為質數，結果會好很多，因為可**避免「週期性」碰撞**，且可**避免「公因數問題」**，防止所有 key 都被映射到同一個 bucket。
 2. Multiplication method 的分布品質較穩定，不太依賴 m 是否為質數。
+- 怎麼讓 hash 結果看起來均勻分布?
+1. 減少 collision -> 不要讓相近的 key 得到相近的 hash 值
+  - 要分散資料分布!
+  - **把 key 均勻打散，減少落到同一個 index 的機率**
+2. 避免「週期性」與 key pattern 同步
+  - m 選 質數
+  - m 選 key 多樣性較大的數
+  - 使用 multiplication method（較不受 key 週期影響）
+  - **消除與 key 的規律同步，確保每個位置平均承擔資料**
+3. 避免簡單線性 hash，改用非線性組合
+  - **非線性混合更能打散 key**
 
 ## GitHub Upload
 - Select the file tp upload
