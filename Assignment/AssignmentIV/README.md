@@ -168,15 +168,15 @@ Example output for strings:
   2. Multiplication method 的分布品質較穩定，不太依賴 m 是否為質數。
 - 怎麼讓 hash 結果看起來均勻分布?
   1. 減少 collision → 不要讓相近的 key 得到相近的 hash 值
-    - 要分散資料分布!
-    - **把 key 均勻打散，減少落到同一個 index 的機率**
+      - 要分散資料分布!
+      - **把 key 均勻打散，減少落到同一個 index 的機率**
   2. 避免「週期性」與 key pattern 同步
-    - m 選 質數
-    - m 選 key 多樣性較大的數
-    - 使用 multiplication method（較不受 key 週期影響）
+      - m 選 質數
+      - m 選 key 多樣性較大的數
+      - 使用 multiplication method（較不受 key 週期影響）
     - **消除與 key 的規律同步，確保每個位置平均承擔資料**
   3. 避免簡單線性 hash，改用非線性組合
-    - **非線性混合更能打散 key**
+      - **非線性混合更能打散 key**
 
 ## GitHub Upload
 - Select the file tp upload
