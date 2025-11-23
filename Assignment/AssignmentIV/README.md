@@ -174,7 +174,7 @@ Example output for strings:
       - m 選 質數
       - m 選 key 多樣性較大的數
       - 使用 multiplication method（較不受 key 週期影響）
-    - **消除與 key 的規律同步，確保每個位置平均承擔資料**
+      - **消除與 key 的規律同步，確保每個位置平均承擔資料**
   3. 避免簡單線性 hash，改用非線性組合
       - **非線性混合更能打散 key**
 
