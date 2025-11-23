@@ -3,9 +3,9 @@
 - Email: <s1121430@mail.yzu.edu.tw> / <ariel940814@gmail.com> 
  ---
 ## My Hash Function (C++ Version)
-- 我使用較常見的一種方法來做實作: **Multiplication Method**  
-Multiplication method 是 Donald Knuth 在 TAOCP 中提出的 Hashing 方法。
-使用「乘法 + 小數部分」來把 key **均勻分佈**到 Hash Table 中。
+- 使用較常見的 hash function 實作方法: **Multiplication Method** 
+- 參考網路上: [網路參考連結](https://hackmd.io/@Zero871015/DSNote-20)
+- Multiplication method 是 Donald Knuth 在 TAOCP 中提出的 Hashing 方法。使用「乘法 + 小數部分」來把 key **均勻分佈**到 Hash Table 中。
 ```text
     標準公式：h(k)=⌊m(kAmod1)⌋
     其中：
@@ -100,7 +100,7 @@ Multiplication method 是 Donald Knuth 在 TAOCP 中提出的 Hashing 方法。
   Compile: g++ -std=c++17 -O2 main.cpp -o conv1
   Run: ./conv1
   ```
-  - Command for C:
+- Command for C:
   ```bash
   Compile: gcc -std=c++17 -O2 main.c -o conv
   Run: ./conv
