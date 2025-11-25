@@ -7,12 +7,12 @@ CFLAGS   := -std=c2x -Wall -Wextra -Wpedantic -g
 CXXFLAGS := -std=c++2x -Wall -Wextra -Wpedantic -g
 
 # ==== C version ====
-C_SRCS := C/main.c C/hash_fn.c
+C_SRCS := C/main.c #C/hash_fn.c
 C_OBJS := $(C_SRCS:.c=.o)
 C_BIN  := C/hash_function
 
 # ==== C++ version ====
-CXX_SRCS := CXX/main.cpp CXX/hash_fn.cpp
+CXX_SRCS := CXX/main.cpp #CXX/hash_fn.cpp
 CXX_OBJS := $(CXX_SRCS:.cpp=.o)
 CXX_BIN  := CXX/hash_function_cpp
 
