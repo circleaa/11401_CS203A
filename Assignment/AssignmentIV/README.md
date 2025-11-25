@@ -108,21 +108,53 @@
   Compile: gcc -std=c++17 -O2 main.c -o conv
   Run: ./conv
   ```
-- The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
+### Makefile
+- 修改了Makefile中的一些地方，根據版本需求
+    - CFLAGS   := -std=c2x -Wall -Wextra -Wpedantic -g
+    - CXXFLAGS := -std=c++2a -Wall -Wextra -Wpedantic -g
+- 並且在執行C與C++檔案時只執行main檔案就好，否則會發生function被定義兩次
+    - C_SRCS := C/main.c 
+    - CXX_SRCS := CXX/main.cpp 
+
+  1. Build both C and C++ versions
   ```bash
-  # Build both C and C++ versions
   make all
-  
-  # Build only C version
+  ```
+  - output
+  ```bash
+  gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
+  gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
+  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
+  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
+  ```
+
+  2. Build only C version
+  ```bash
   make c
-  
-  # Build only C++ version
+  ```
+  - output  
+  ```bash
+  gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
+  gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
+  ```
+
+  3. Build only C++ version
+  ```bash
   make cxx
   ```
+  - output  
+  ```bash
+  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
+  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
+  ```
 ### Clean Build Files
-- Remove all compiled files:
+4. Remove all compiled files:
   ```bash
   make clean
+  ```
+- output  
+  ```bash
+  rm -f C/main.o CXX/main.o C/hash_function CXX/hash_function_cpp
   ```
 ### Result Snapshot
  - C++ Version  
