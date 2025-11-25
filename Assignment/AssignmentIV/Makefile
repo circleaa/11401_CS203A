@@ -1,6 +1,6 @@
 # Compilers
-CC      := gcc
-CXX     := g++
+CC      := gcc-13
+CXX     := g++-13
 
 # Flags (adjust as you like)
 CFLAGS   := -std=c23 -Wall -Wextra -Wpedantic -g
