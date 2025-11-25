@@ -47,11 +47,10 @@ int myHashString(const char* str, int m) {
     //Multiplication Method
     const double A = 0.618; // 黃金比例倒數
     const int base = 31;
-    unsigned long long k = 0;
     for (int i = 0; str[i] != '\0'; i++) { // 將字串轉成數字
-        k = k * base + (unsigned char)str[i];
+        hash = hash * base + (unsigned char)str[i];
     }
-    double ka = k * A;
+    double ka = hash * A;
     double frac = ka - (unsigned long long)ka; //只取小數部分
     int index = (int)(m * frac);
     return index;
