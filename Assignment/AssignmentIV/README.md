@@ -116,46 +116,47 @@
     - C_SRCS := C/main.c 
     - CXX_SRCS := CXX/main.cpp 
 
-  1. Build both C and C++ versions
-  ```bash
-  make all
-  ```
-  - output
-  ```bash
-  gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
-  gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
-  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
-  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
-  ```
+1. Build both C and C++ versions
+```bash
+make all
+```
+- output
+```bash
+gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
+gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
+g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
+g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
+```
 
-  2. Build only C version
-  ```bash
-  make c
-  ```
-  - output  
-  ```bash
-  gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
-  gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
-  ```
+2. Build only C version
+```bash
+make c
+```
+- output  
+```bash
+gcc -std=c2x -Wall -Wextra -Wpedantic -g -c C/main.c -o C/main.o
+gcc -std=c2x -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.o
+```
 
-  3. Build only C++ version
-  ```bash
-  make cxx
-  ```
-  - output  
-  ```bash
-  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
-  g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
-  ```
+3. Build only C++ version
+```bash
+make cxx
+```
+- output  
+```bash
+g++ -std=c++2a -Wall -Wextra -Wpedantic -g -c CXX/main.cpp -o CXX/main.o
+g++ -std=c++2a -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.o
+```
 ### Clean Build Files
 4. Remove all compiled files:
-  ```bash
-  make clean
-  ```
+```bash
+make clean
+```
 - output  
-  ```bash
-  rm -f C/main.o CXX/main.o C/hash_function CXX/hash_function_cpp
-  ```
+```bash
+rm -f C/main.o CXX/main.o C/hash_function CXX/hash_function_cpp
+```
+
 ### Result Snapshot
  - C++ Version  
 Example output for integers:  
