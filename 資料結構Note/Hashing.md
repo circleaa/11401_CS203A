@@ -46,9 +46,4 @@
 | Delete | O(1) | O(n) |
 
 > 若使用良好的 hash function 且載入因子適中（α < 0.7），通常可維持 O(1) 效能。
-
----
-
-## Load Factor（載入因子）
-
-
+> Load Factor（載入因子）: hash table 填滿的程度，可決定查找速率。
