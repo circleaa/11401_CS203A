@@ -17,7 +17,7 @@
 
 ---
 ## 圖的術語與類型 (Terminology & Classification)
-### 邊的類型 (Edge Components)
+### 邊的類型
 
 | 類型 (Type) | 描述 (Description) | 範例 (Example) |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@
 | **有向圖 (Directed Graph / Digraph)** | 邊具有方向 | Instagram 的「追蹤」關係 |
 | **加權圖 (Weighted Graph)** | 每條邊都有一個**成本 (cost)** (權重) | Google 地圖上的距離 |
 
-### 圖的結構 (Graph Structure)
+### 圖的結構
 
 | 類型 (Type) | 描述 (Description) | 範例 (Example) |
 | :--- | :--- | :--- |
@@ -43,7 +43,7 @@
     * **Out-degree**：從該node出發的邊數 (該node是箭頭的尾)
 
 ---
-## 圖的表示法 (Graph Representation)
+## 圖的表示
 
 常用的圖表示法有兩種：鄰接矩陣和鄰接串列
 ### 鄰接矩陣 (Adjacency Matrix)
@@ -56,6 +56,8 @@
 * **缺點 (Cons)**：
     * 空間複雜度為 $O(V^2)$，對稀疏圖 (Sparse graphs) 來說非常浪費
     * 尋找所有鄰居需要掃描整行，為 $O(V)$
+ 
+  <img src="Images/Adjacency_Matrix.png"> 
 
 ### 鄰接串列 (Adjacency List)
 
@@ -67,6 +69,8 @@
     * 容易處理動態圖 (Dynamic graphs)
 * **缺點 (Cons)**：
     * 檢查邊 $(u, v)$ 是否存在為 $O(\text{deg}(u))$
+ 
+<img src="Images/Adjacency_Lists.png"> 
 
 ### 複雜度比較 (Time Complexity Comparison)
 
