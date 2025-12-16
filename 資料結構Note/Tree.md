@@ -63,7 +63,7 @@
 
 遍歷是按照特定順序訪問每個節點的過程。
 
-### 4.1. 深度優先遍歷 (Depth-First Traversal, DFT)
+### 深度優先遍歷 (Depth-First Traversal, DFT)
 
 | 順序 (Order) | 訪問序列 (Visit Sequence) | 用途 (Description) |
 | :--- | :--- | :--- |
