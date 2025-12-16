@@ -77,6 +77,15 @@
 * 實現方式：逐層訪問節點，使用**queue** 實現
 
 ---
+## 樹的表示
+* List representation
+<img src="Images/List_representation.png" width="300"> 
+* Left child-right sibling representation
+<img src="Images/Left_child-right_sibling.png" width="300"> 
+* Representation as a degree-two tree
+<img src="Images/degree-two_tree.png"> 
+      
+---
 ## 二元搜尋樹 (BST) 的效能與操作
 
 ### 效能與平衡
