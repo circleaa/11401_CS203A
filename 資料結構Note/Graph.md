@@ -12,8 +12,13 @@
     * 邊可以是**有向 (directed)** 或**無向 (undirected)**
     * 圖用於建模網路，例如社交關係、交通系統或網頁超連結
 * **圖 vs. 樹**：
-    * **樹**是一種特殊的圖：它是一個**連通的無環圖** (connected acyclic graph)
-    * **樹**總是連通且具有階層性；**圖**可能不連通、可以有循環、無固有階層
+
+| Property | Tree | Graph |
+| :--- | :--- | :--- |
+| **Connectivity** | 都 connected | 可能 disconnected |
+| **Cycles** | 無 | 有 |
+| **Direction** | 無 | Directed or undirected |
+| **Hierarchy** | 有(rooted) | No inherent hierarchy |
 
 ---
 ## 圖的術語與類型 (Terminology & Classification)
@@ -77,27 +82,21 @@
 | Feature | Adjacency Matrix | Adjacency List |
 | :--- | :--- | :--- |
 | **Edge lookup** | $O(1)$ | $O(\text{deg}(v))$ |
+| **Add edge (u, v)** | $O(1)$ | $O(1)$ |
+| **Remove edge (u, v)** | $O(1)$ | $O(\text{deg}(u))$ |
 | **Space** | $O(V^2)$ | $O(V+E)$ |
 | **Traversal BFS/DFS** | $O(V^2)$ | $O(V+E)$ |
-| **Neighbor iteration** | $O(V)$ | $O(\text{deg}(v))$ |
 | **Best for** | Dense graphs | Sparse graphs |
+| **Neighbor iteration** | $O(V)$ | $O(\text{deg}(v))$ |
+| **Implementation** | Simple | Moderate |
+| **Dynamic graph?** | Hard | Easy |
 
 ---
 ## 圖的遍歷 (Graph Traversal)
 
 圖的遍歷與樹的遍歷相似，但必須處理**循環**和**多條路徑**的問題
 
->**Graph traversal** = **Tree traversal** + **visited[ ]** (用於避免循環)
-
-### 廣度優先搜尋 (Breadth-First Search, BFS)
-
-* **用途**：類似於樹的**層級順序遍歷 (Level-order)**
-* **資料結構**：使用**Queue** (遵循 First-in, First-out (FIFO) 原則)
-* **演算法核心**：
-    1.  將起點node加入queue和 `visited` 集合
-    2.  當queue不空時，取出node $v$
-    3.  如果 $v$ 未被訪問，則標記並輸出 $v$
-    4.  將所有未訪問的鄰居加入queue
+>**Graph traversal** = **Tree traversal** + **visited[ ]** (用於避免cycles)
 
 ### 深度優先搜尋 (Depth-First Search, DFS)
 
@@ -108,6 +107,16 @@
     2.  當stack不空時，從stack中取出node $v$
     3.  如果 $v$ 未被訪問，則標記並輸出 $v$
     4.  將所有未訪問的鄰居壓入stack
+
+### 廣度優先搜尋 (Breadth-First Search, BFS)
+
+* **用途**：類似於樹的**層級順序遍歷 (Level-order)**
+* **資料結構**：使用**Queue** (遵循 First-in, First-out (FIFO) 原則)
+* **演算法核心**：
+    1.  將起點node加入queue和 `visited` 集合
+    2.  當queue不空時，取出node $v$
+    3.  如果 $v$ 未被訪問，則標記並輸出 $v$
+    4.  將所有未訪問的鄰居加入queue
 
 ---
 ## 圖遍歷處理 (Traversal Handling)
