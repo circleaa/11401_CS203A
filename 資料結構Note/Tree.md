@@ -1,4 +1,4 @@
-# 樹 (Trees)
+# Trees(樹)
 
 這份文件整理了樹 (Trees) 這種非線性階層式資料結構的核心概念、術語、類型和操作。
 
@@ -9,10 +9,11 @@
     * 每個節點可以有零個或多個子節點，形成父子關係。
     * 樹中**沒有循環 (cycles)**。
     * 用於表示像檔案系統或組織結構這類的階層式關係。
-* 樹在日常生活中的應用:
+* **樹在日常生活中的應用**:
     * 家族樹 (Family tree)。
     * 檔案系統階層 (File system hierarchy)。
 
+---
 ## 樹的基本術語 (Terminology)
 
 樹的基本元件包括節點 (root, internal, leaf, parent, child, sibling)、邊 (Edge)、子樹 (Subtree)、層級 (Level)、深度 (Depth) 和高度 (Height)。
@@ -28,8 +29,8 @@
 | **高度 (Height)** | 到最遠葉節點的最長路徑 | |
 | **分支度 (Fan-out)** | 一個節點可以擁有的子節點數量 | |
 
+---
 ## 樹的類型 (Types of Trees)
-
 ### 樹的演化階層 (General to Specialized)
 
 | Level | Name | Extra rule compared to previous level | Type of constraint |
@@ -57,6 +58,7 @@
 | **堆積樹 (Heap Tree)** | 是一種完全樹，父節點 $\ge$ 或 $\le$ 子節點 | 優先佇列 (Priority queue) |
 | **KD-Tree** | 用於 k 維資料的空間分割 | 最近鄰搜尋 (ML) |
 
+---
 ## 樹的遍歷 (Tree Traversal)
 
 遍歷是按照特定順序訪問每個節點的過程。
@@ -73,6 +75,8 @@
 
 * 也稱為：**層級順序遍歷 (Level-Order Traversal)**
 * 實現方式：逐層訪問節點，使用**queue** 實現
+
+---
 ## 二元搜尋樹 (BST) 的效能與操作
 
 ### 效能與平衡
