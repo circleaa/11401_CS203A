@@ -35,7 +35,7 @@
 
 | Level | Name | Extra rule compared to previous level | Type of constraint |
 | :--- | :--- | :--- | :--- |
-| **1** | **樹 (Tree)** | 僅是一個有根的階層結構，對子節點數量無限制 [cite: 239]。 | Very general shape |
+| **1** | **樹 (Tree)** | 僅是一個有根的階層結構，對子節點數量無限制 | Very general shape |
 | **2** | **二元樹 (Binary Tree)** | 每個節點最多有 2 個子節點 (left/right) | Shape constraint (arity) |
 | **3** | **二元搜尋樹 (BST)** | 每個節點：左子樹 $<$ 節點 $<$ 右子樹 | Ordering (search) invariant |
 | **4** | **平衡 BST (AVL, Red-Black)** | 高度保持在 $(\approx \log n)$ 附近 | Height / balance invariant |
