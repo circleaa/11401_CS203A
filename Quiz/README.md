@@ -13,7 +13,10 @@ This section contains quizzes for the course. Each quiz is designed to test your
     - [Quiz](Quiz_III.pdf); [Answer](Quiz_III_answer.pdf)
 - Quiz IV
     - Scope: Tree, Heap, Graph
-    - [Quiz](Quiz_IV.pdf);
+    - [Quiz](Quiz_IV.pdf); [Answer](Quiz_IV_answer.pdf)
+- Quiz V
+    - Scope: Tree, Graph
+    - [Quiz](Quiz_V.pdf); [Answer](Quiz_V_answer.pdf)
 
 
 
