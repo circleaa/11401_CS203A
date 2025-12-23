@@ -1,7 +1,7 @@
 # Hashing（雜湊）
 
 ## 基本概念
-**Hashing** 是一種透過「雜湊函式（hash function）」將**鍵值（key）**轉換成陣列索引（index）的方法。  
+**Hashing** 是一種透過「雜湊函式（hash function）」將**key**鍵值轉換成陣列索引（index）的方法。  
 目的是在 **O(1)** 平均時間內完成插入、搜尋與刪除。
 
 ---
