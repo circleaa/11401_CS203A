@@ -35,6 +35,9 @@
 | **Quadratic Probing** | `(h(key) + c1·i + c2·i²) mod m` | 探查距離呈平方成長 | 需小心無限迴圈 |
 | **Double Hashing** | `(h1(key) + i·h2(key)) mod m` | 使用第二個 hash function | 分布較均勻、效能佳 |
 
+- **Primary clustering**：在 linear probing 中，一旦形成一段連續已佔用的區間（cluster），新元素會更容易被插入到這個區間的尾端，使 cluster 越來越大，搜尋與插入成本上升。
+- **Secondary clustering**：在 quadratic probing，具有相同初始 hash value 的 keys 會走完全相同的探測序列，因而彼此形成叢集。
+
 ---
 
 ## Hash Table 操作複雜度（平均情況）
